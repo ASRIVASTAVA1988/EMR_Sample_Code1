@@ -1,0 +1,10 @@
+E:\Work\EMR\EMRModel\bin\Debug\EMRModel.dll
+E:\Work\EMR\EMRModel\bin\Debug\EMRModel.pdb
+E:\Work\EMR\EMRModel\obj\Debug\EMRModel.csprojResolveAssemblyReference.cache
+E:\Work\EMR\EMRModel\obj\Debug\EMRModel.dll
+E:\Work\EMR\EMRModel\obj\Debug\EMRModel.pdb
+F:\Study\EMR\EMR_Sample\EMR\EMRModel\bin\Debug\EMRModel.dll
+F:\Study\EMR\EMR_Sample\EMR\EMRModel\bin\Debug\EMRModel.pdb
+F:\Study\EMR\EMR_Sample\EMR\EMRModel\obj\Debug\EMRModel.csprojResolveAssemblyReference.cache
+F:\Study\EMR\EMR_Sample\EMR\EMRModel\obj\Debug\EMRModel.dll
+F:\Study\EMR\EMR_Sample\EMR\EMRModel\obj\Debug\EMRModel.pdb

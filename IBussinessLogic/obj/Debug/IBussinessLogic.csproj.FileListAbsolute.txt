@@ -1,0 +1,14 @@
+E:\Work\EMR\IBussinessLogic\bin\Debug\IBussinessLogic.dll
+E:\Work\EMR\IBussinessLogic\bin\Debug\IBussinessLogic.pdb
+E:\Work\EMR\IBussinessLogic\obj\Debug\IBussinessLogic.csprojResolveAssemblyReference.cache
+E:\Work\EMR\IBussinessLogic\obj\Debug\IBussinessLogic.dll
+E:\Work\EMR\IBussinessLogic\obj\Debug\IBussinessLogic.pdb
+E:\Work\EMR\IBussinessLogic\bin\Debug\EMRModel.dll
+E:\Work\EMR\IBussinessLogic\bin\Debug\EMRModel.pdb
+F:\Study\EMR\EMR_Sample\EMR\IBussinessLogic\bin\Debug\IBussinessLogic.dll
+F:\Study\EMR\EMR_Sample\EMR\IBussinessLogic\bin\Debug\IBussinessLogic.pdb
+F:\Study\EMR\EMR_Sample\EMR\IBussinessLogic\bin\Debug\EMRModel.dll
+F:\Study\EMR\EMR_Sample\EMR\IBussinessLogic\bin\Debug\EMRModel.pdb
+F:\Study\EMR\EMR_Sample\EMR\IBussinessLogic\obj\Debug\IBussinessLogic.csprojResolveAssemblyReference.cache
+F:\Study\EMR\EMR_Sample\EMR\IBussinessLogic\obj\Debug\IBussinessLogic.dll
+F:\Study\EMR\EMR_Sample\EMR\IBussinessLogic\obj\Debug\IBussinessLogic.pdb

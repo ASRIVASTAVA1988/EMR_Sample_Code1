@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EMRDBModelStoreContainer" CdmEntityContainer="EMRDBEntities">
+    <EntitySetMapping Name="ActionControllers">
+      <EntityTypeMapping TypeName="EMRDBModel.ActionController">
+        <MappingFragment StoreEntitySet="ActionController">
+          <ScalarProperty Name="ActionControllerId" ColumnName="ActionControllerId" />
+          <ScalarProperty Name="ActionControllerCode" ColumnName="ActionControllerCode" />
+          <ScalarProperty Name="ActionControllerName" ColumnName="ActionControllerName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ActionControllerRoles">
+      <EntityTypeMapping TypeName="EMRDBModel.ActionControllerRole">
+        <MappingFragment StoreEntitySet="ActionControllerRole">
+          <ScalarProperty Name="ActionControllerRoleId" ColumnName="ActionControllerRoleId" />
+          <ScalarProperty Name="ActionControllerId" ColumnName="ActionControllerId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Entities">
+      <EntityTypeMapping TypeName="EMRDBModel.Entity">
+        <MappingFragment StoreEntitySet="Entity">
+          <ScalarProperty Name="EntityId" ColumnName="EntityId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HostStates">
+      <EntityTypeMapping TypeName="EMRDBModel.HostState">
+        <MappingFragment StoreEntitySet="HostState">
+          <ScalarProperty Name="HostStateId" ColumnName="HostStateId" />
+          <ScalarProperty Name="HostStateCode" ColumnName="HostStateCode" />
+          <ScalarProperty Name="HostStateName" ColumnName="HostStateName" />
+          <ScalarProperty Name="PasswordResetTime" ColumnName="PasswordResetTime" />
+          <ScalarProperty Name="PasswordLockedTime" ColumnName="PasswordLockedTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Menus">
+      <EntityTypeMapping TypeName="EMRDBModel.Menu">
+        <MappingFragment StoreEntitySet="Menu">
+          <ScalarProperty Name="MenuId" ColumnName="MenuId" />
+          <ScalarProperty Name="MenuCode" ColumnName="MenuCode" />
+          <ScalarProperty Name="MenuName" ColumnName="MenuName" />
+          <ScalarProperty Name="ActionControllerId" ColumnName="ActionControllerId" />
+          <ScalarProperty Name="ParentMenuId" ColumnName="ParentMenuId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="EMRDBModel.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="RoleCode" ColumnName="RoleCode" />
+          <ScalarProperty Name="RoleDescription" ColumnName="RoleDescription" />
+          <ScalarProperty Name="RoleType" ColumnName="RoleType" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="EMRDBModel.user">
+        <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsLocked" ColumnName="IsLocked" />
+          <ScalarProperty Name="LastLoginAttemptDate" ColumnName="LastLoginAttemptDate" />
+          <ScalarProperty Name="LastPasswordResetDate" ColumnName="LastPasswordResetDate" />
+          <ScalarProperty Name="LastUserLockedTime" ColumnName="LastUserLockedTime" />
+          <ScalarProperty Name="FailedPasswordCount" ColumnName="FailedPasswordCount" />
+          <ScalarProperty Name="IsStaff" ColumnName="IsStaff" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserEntityMappings">
+      <EntityTypeMapping TypeName="EMRDBModel.UserEntityMapping">
+        <MappingFragment StoreEntitySet="UserEntityMapping">
+          <ScalarProperty Name="UserEntityMappingId" ColumnName="UserEntityMappingId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="EntityId" ColumnName="EntityId" />
+          <ScalarProperty Name="EntityType" ColumnName="EntityType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserRoles">
+      <EntityTypeMapping TypeName="EMRDBModel.UserRole">
+        <MappingFragment StoreEntitySet="UserRole">
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserRoleId" ColumnName="UserRoleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

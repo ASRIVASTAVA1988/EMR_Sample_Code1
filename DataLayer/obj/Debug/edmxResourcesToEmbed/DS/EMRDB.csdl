@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EMRDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ActionController">
+    <Key>
+      <PropertyRef Name="ActionControllerId" />
+    </Key>
+    <Property Name="ActionControllerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ActionControllerCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ActionControllerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ActionControllerRole">
+    <Key>
+      <PropertyRef Name="ActionControllerRoleId" />
+    </Key>
+    <Property Name="ActionControllerRoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ActionControllerId" Type="Int32" />
+    <Property Name="RoleId" Type="Int32" />
+    <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Entity">
+    <Key>
+      <PropertyRef Name="EntityId" />
+    </Key>
+    <Property Name="EntityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="HostState">
+    <Key>
+      <PropertyRef Name="HostStateId" />
+    </Key>
+    <Property Name="HostStateId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HostStateCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="HostStateName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PasswordResetTime" Type="Int32" />
+    <Property Name="PasswordLockedTime" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Menu">
+    <Key>
+      <PropertyRef Name="MenuId" />
+    </Key>
+    <Property Name="MenuId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MenuCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MenuName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ActionControllerId" Type="Int32" />
+    <Property Name="ParentMenuId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="RoleDescription" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="RoleType" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LoginName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="IsLocked" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="LastLoginAttemptDate" Type="DateTime" Precision="3" />
+    <Property Name="LastPasswordResetDate" Type="DateTime" Precision="3" />
+    <Property Name="LastUserLockedTime" Type="DateTime" Precision="3" />
+    <Property Name="FailedPasswordCount" Type="Int32" />
+    <Property Name="IsStaff" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="UserEntityMapping">
+    <Key>
+      <PropertyRef Name="UserEntityMappingId" />
+    </Key>
+    <Property Name="UserEntityMappingId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="EntityId" Type="Int32" />
+    <Property Name="EntityType" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="EMRDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ActionControllers" EntityType="Self.ActionController" />
+    <EntitySet Name="ActionControllerRoles" EntityType="Self.ActionControllerRole" />
+    <EntitySet Name="Entities" EntityType="Self.Entity" />
+    <EntitySet Name="HostStates" EntityType="Self.HostState" />
+    <EntitySet Name="Menus" EntityType="Self.Menu" />
+    <EntitySet Name="Roles" EntityType="Self.Role" />
+    <EntitySet Name="users" EntityType="Self.user" />
+    <EntitySet Name="UserEntityMappings" EntityType="Self.UserEntityMapping" />
+    <EntitySet Name="UserRoles" EntityType="EMRDBModel.UserRole" />
+  </EntityContainer>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="UserRoleId" />
+    </Key>
+    <Property Name="UserRoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="RoleId" Type="Int32" />
+  </EntityType>
+</Schema>

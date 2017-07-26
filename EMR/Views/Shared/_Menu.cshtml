@@ -1,0 +1,79 @@
+﻿
+<nav class="navbar navbar-inverse navbar-fixed-top container" role="navigation" style="width:75% !important">
+    <div class="container">
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+
+                @foreach (EMRModel.MenuObj cat in Model)
+                {
+                <li class="dropdown">
+                    <a href='@cat.MenuUrl'>@cat.MenuName</a>
+                </li>
+                }
+
+                <li class="dropdown">
+                    <a href='@Url.Action("LogOut", "home")'>Log Out</a>
+                </li>
+                @*var plist = Model.Where(m => m.ParentMenuId == null).ToList();*@ 
+                @*if (plist != null && plist.Count > 0)
+                {
+                <ul class="nav">
+                    @foreach (var pitem in plist)
+                    {
+            
+                        <li>
+                            <a href="{URL-Required} title="@Description">@pitem.Title</a>
+                            @{
+                                var clist = myMenu.Where(m => m.ParentID == pitem.ID).ToList();
+                                if (clist != null && clist.Count > 0)
+                                {
+                                    <ul>
+                                        @foreach (var citem in clist)
+                                        {
+    
+                                            <li><a href="{URL-Required}" title="@Description">@citem.Title</a></li>
+                                        }
+                                    </ul>
+                                }
+                            }
+                        </li>
+                        }
+                    </ul>
+                    }*@
+                @*<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Category <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            @foreach (MarshhealingModel.CategoryBAL cat in Model.CategoryBALList)
+                            {
+                            <li>
+                                <a href='@Url.Action("category", "marshhealings", new { categoryName = cat.UrlName })'>@cat.CategoryName</a>
+                            </li>
+                            }
+
+                        </ul>
+                    </li>
+                    @if (Model.ProductMasterBALList.Count() > 0)
+                    {
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Product <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            @foreach (MarshhealingModel.ProductMasterBAL cat in Model.ProductMasterBALList)
+                                {
+                                <li>
+                                    <a href='@Url.Action("productdetail", "marshhealings", new { id = cat.ProductUrl })'>@cat.ProductName</a>
+                                </li>
+                                }
+                        </ul>
+                    </li>
+                    }
+                    <li>
+                        <a href='@Url.Action("contact", "marshhealings")'>Contact</a>
+                    </li>*@
+
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>

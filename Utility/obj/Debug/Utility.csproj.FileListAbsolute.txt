@@ -1,0 +1,5 @@
+F:\Study\EMR\EMR_Sample\EMR\Utility\obj\Debug\Utility.csprojResolveAssemblyReference.cache
+F:\Study\EMR\EMR_Sample\EMR\Utility\bin\Debug\Utility.dll
+F:\Study\EMR\EMR_Sample\EMR\Utility\bin\Debug\Utility.pdb
+F:\Study\EMR\EMR_Sample\EMR\Utility\obj\Debug\Utility.dll
+F:\Study\EMR\EMR_Sample\EMR\Utility\obj\Debug\Utility.pdb

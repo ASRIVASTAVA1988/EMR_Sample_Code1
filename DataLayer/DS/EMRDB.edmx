@@ -1,0 +1,345 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="EMRDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ActionController">
+          <Key>
+            <PropertyRef Name="ActionControllerId" />
+          </Key>
+          <Property Name="ActionControllerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ActionControllerCode" Type="varchar" MaxLength="10" />
+          <Property Name="ActionControllerName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ActionControllerRole">
+          <Key>
+            <PropertyRef Name="ActionControllerRoleId" />
+          </Key>
+          <Property Name="ActionControllerRoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ActionControllerId" Type="int" />
+          <Property Name="RoleId" Type="int" />
+          <Property Name="IsActive" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="Entity">
+          <Key>
+            <PropertyRef Name="EntityId" />
+          </Key>
+          <Property Name="EntityId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Phone" Type="varchar" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="HostState">
+          <Key>
+            <PropertyRef Name="HostStateId" />
+          </Key>
+          <Property Name="HostStateId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HostStateCode" Type="varchar" MaxLength="50" />
+          <Property Name="HostStateName" Type="varchar" MaxLength="100" />
+          <Property Name="PasswordResetTime" Type="int" />
+          <Property Name="PasswordLockedTime" Type="int" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="MenuId" />
+          </Key>
+          <Property Name="MenuId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MenuCode" Type="varchar" MaxLength="50" />
+          <Property Name="MenuName" Type="varchar" MaxLength="100" />
+          <Property Name="ActionControllerId" Type="int" />
+          <Property Name="ParentMenuId" Type="int" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleCode" Type="varchar" MaxLength="10" />
+          <Property Name="RoleDescription" Type="varchar" MaxLength="30" />
+          <Property Name="RoleType" Type="varchar" MaxLength="5" />
+          <Property Name="IsActive" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LoginName" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="100" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" />
+          <Property Name="IsActive" Type="char" MaxLength="1" />
+          <Property Name="IsLocked" Type="char" MaxLength="1" />
+          <Property Name="LastLoginAttemptDate" Type="datetime" />
+          <Property Name="LastPasswordResetDate" Type="datetime" />
+          <Property Name="LastUserLockedTime" Type="datetime" />
+          <Property Name="FailedPasswordCount" Type="int" />
+          <Property Name="IsStaff" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="UserEntityMapping">
+          <Key>
+            <PropertyRef Name="UserEntityMappingId" />
+          </Key>
+          <Property Name="UserEntityMappingId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="EntityId" Type="int" />
+          <Property Name="EntityType" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="UserRoleId" />
+          </Key>
+          <Property Name="UserRoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="RoleId" Type="int" />
+        </EntityType>
+        <EntityContainer Name="EMRDBModelStoreContainer">
+          <EntitySet Name="ActionController" EntityType="Self.ActionController" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ActionControllerRole" EntityType="Self.ActionControllerRole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Entity" EntityType="Self.Entity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HostState" EntityType="Self.HostState" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Menu" EntityType="Self.Menu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserEntityMapping" EntityType="Self.UserEntityMapping" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EMRDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ActionController">
+          <Key>
+            <PropertyRef Name="ActionControllerId" />
+          </Key>
+          <Property Name="ActionControllerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ActionControllerCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ActionControllerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ActionControllerRole">
+          <Key>
+            <PropertyRef Name="ActionControllerRoleId" />
+          </Key>
+          <Property Name="ActionControllerRoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ActionControllerId" Type="Int32" />
+          <Property Name="RoleId" Type="Int32" />
+          <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Entity">
+          <Key>
+            <PropertyRef Name="EntityId" />
+          </Key>
+          <Property Name="EntityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="HostState">
+          <Key>
+            <PropertyRef Name="HostStateId" />
+          </Key>
+          <Property Name="HostStateId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HostStateCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="HostStateName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PasswordResetTime" Type="Int32" />
+          <Property Name="PasswordLockedTime" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="MenuId" />
+          </Key>
+          <Property Name="MenuId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MenuCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MenuName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ActionControllerId" Type="Int32" />
+          <Property Name="ParentMenuId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="RoleDescription" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="RoleType" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LoginName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="IsLocked" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="LastLoginAttemptDate" Type="DateTime" Precision="3" />
+          <Property Name="LastPasswordResetDate" Type="DateTime" Precision="3" />
+          <Property Name="LastUserLockedTime" Type="DateTime" Precision="3" />
+          <Property Name="FailedPasswordCount" Type="Int32" />
+          <Property Name="IsStaff" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="UserEntityMapping">
+          <Key>
+            <PropertyRef Name="UserEntityMappingId" />
+          </Key>
+          <Property Name="UserEntityMappingId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="EntityId" Type="Int32" />
+          <Property Name="EntityType" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="EMRDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ActionControllers" EntityType="Self.ActionController" />
+          <EntitySet Name="ActionControllerRoles" EntityType="Self.ActionControllerRole" />
+          <EntitySet Name="Entities" EntityType="Self.Entity" />
+          <EntitySet Name="HostStates" EntityType="Self.HostState" />
+          <EntitySet Name="Menus" EntityType="Self.Menu" />
+          <EntitySet Name="Roles" EntityType="Self.Role" />
+          <EntitySet Name="users" EntityType="Self.user" />
+          <EntitySet Name="UserEntityMappings" EntityType="Self.UserEntityMapping" />
+          <EntitySet Name="UserRoles" EntityType="EMRDBModel.UserRole" />
+        </EntityContainer>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="UserRoleId" />
+          </Key>
+          <Property Name="UserRoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="RoleId" Type="Int32" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EMRDBModelStoreContainer" CdmEntityContainer="EMRDBEntities">
+          <EntitySetMapping Name="ActionControllers">
+            <EntityTypeMapping TypeName="EMRDBModel.ActionController">
+              <MappingFragment StoreEntitySet="ActionController">
+                <ScalarProperty Name="ActionControllerId" ColumnName="ActionControllerId" />
+                <ScalarProperty Name="ActionControllerCode" ColumnName="ActionControllerCode" />
+                <ScalarProperty Name="ActionControllerName" ColumnName="ActionControllerName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ActionControllerRoles">
+            <EntityTypeMapping TypeName="EMRDBModel.ActionControllerRole">
+              <MappingFragment StoreEntitySet="ActionControllerRole">
+                <ScalarProperty Name="ActionControllerRoleId" ColumnName="ActionControllerRoleId" />
+                <ScalarProperty Name="ActionControllerId" ColumnName="ActionControllerId" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Entities">
+            <EntityTypeMapping TypeName="EMRDBModel.Entity">
+              <MappingFragment StoreEntitySet="Entity">
+                <ScalarProperty Name="EntityId" ColumnName="EntityId" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HostStates">
+            <EntityTypeMapping TypeName="EMRDBModel.HostState">
+              <MappingFragment StoreEntitySet="HostState">
+                <ScalarProperty Name="HostStateId" ColumnName="HostStateId" />
+                <ScalarProperty Name="HostStateCode" ColumnName="HostStateCode" />
+                <ScalarProperty Name="HostStateName" ColumnName="HostStateName" />
+                <ScalarProperty Name="PasswordResetTime" ColumnName="PasswordResetTime" />
+                <ScalarProperty Name="PasswordLockedTime" ColumnName="PasswordLockedTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Menus">
+            <EntityTypeMapping TypeName="EMRDBModel.Menu">
+              <MappingFragment StoreEntitySet="Menu">
+                <ScalarProperty Name="MenuId" ColumnName="MenuId" />
+                <ScalarProperty Name="MenuCode" ColumnName="MenuCode" />
+                <ScalarProperty Name="MenuName" ColumnName="MenuName" />
+                <ScalarProperty Name="ActionControllerId" ColumnName="ActionControllerId" />
+                <ScalarProperty Name="ParentMenuId" ColumnName="ParentMenuId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="EMRDBModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="RoleCode" ColumnName="RoleCode" />
+                <ScalarProperty Name="RoleDescription" ColumnName="RoleDescription" />
+                <ScalarProperty Name="RoleType" ColumnName="RoleType" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="EMRDBModel.user">
+              <MappingFragment StoreEntitySet="user">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsLocked" ColumnName="IsLocked" />
+                <ScalarProperty Name="LastLoginAttemptDate" ColumnName="LastLoginAttemptDate" />
+                <ScalarProperty Name="LastPasswordResetDate" ColumnName="LastPasswordResetDate" />
+                <ScalarProperty Name="LastUserLockedTime" ColumnName="LastUserLockedTime" />
+                <ScalarProperty Name="FailedPasswordCount" ColumnName="FailedPasswordCount" />
+                <ScalarProperty Name="IsStaff" ColumnName="IsStaff" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserEntityMappings">
+            <EntityTypeMapping TypeName="EMRDBModel.UserEntityMapping">
+              <MappingFragment StoreEntitySet="UserEntityMapping">
+                <ScalarProperty Name="UserEntityMappingId" ColumnName="UserEntityMappingId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="EntityId" ColumnName="EntityId" />
+                <ScalarProperty Name="EntityType" ColumnName="EntityType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserRoles">
+            <EntityTypeMapping TypeName="EMRDBModel.UserRole">
+              <MappingFragment StoreEntitySet="UserRole">
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserRoleId" ColumnName="UserRoleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
